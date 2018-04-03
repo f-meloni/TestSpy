@@ -31,7 +31,7 @@ public func beEmpty<Spy: TestSpy>() -> Predicate<Spy> {
 
 public func satisfyPredicateCheck<Spy: TestSpy, P: CallstackPredicate>(_ predicate: P, method: Spy.Method) -> Predicate<Spy> where P.Method == Spy.Method {
     return Predicate { actual -> PredicateResult in
-        let expectationMessage = String(format: expectationFormattableMessage(forPredicate: predicate), method as! CVarArg)
+        let expectationMessage = expectationFormattableMessage(forPredicate: predicate, method: method)
 
         guard let spy = try actual.evaluate() else {
             return PredicateResult(status: .fail, message: ExpectationMessage.expectedActualValueTo(
@@ -45,6 +45,6 @@ public func satisfyPredicateCheck<Spy: TestSpy, P: CallstackPredicate>(_ predica
 }
 
 
-private func expectationFormattableMessage<P: CallstackPredicate, Method>(forPredicate predicate: P, method: Method) -> String where Method == CallstackPredicate.Method {
+private func expectationFormattableMessage<P: CallstackPredicate, Method>(forPredicate predicate: P, method: Method) -> String where Method == P.Method {
     return predicate.description(forMethod: method)
 }

@@ -12,3 +12,4 @@ public protocol CallstackPredicate {
     func check(method: Method, against callstack: [Method]) -> Bool
     func description(forMethod method: Method) -> String
 }
+
