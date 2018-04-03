@@ -10,9 +10,5 @@ public protocol CallstackPredicate {
     associatedtype Method: Equatable
     
     func check(method: Method, against callstack: [Method]) -> Bool
+    func description(forMethod method: Method) -> String
 }
-
-public protocol FormattablePredicate {
-    var formattablePredicateMessage: String { get }
-}
-

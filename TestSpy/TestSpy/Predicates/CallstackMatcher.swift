@@ -37,27 +37,24 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
         }
     }
     
-}
-
-extension CallstackMatcher: FormattablePredicate {    
-    public var formattablePredicateMessage: String {
+    public func description(forMethod method: T) -> String {
         switch self {
         case .times(let times):
-            return "have received %s \(times) times"
+            return "have received \(method) \(times) times"
         case .atLeast(let times):
-            return "have received %s at least \(times) times"
+            return "have received \(method) at least \(times) times"
         case .never:
-            return "have not received %s"
+            return "have not received \(method)"
         case .any:
-            return "have received %s"
+            return "have received \(method)"
         case .before(let otherMethod):
-            return "have received %s before \(otherMethod)"
+            return "have received \(method) before \(otherMethod)"
         case .immediatelyBefore(let otherMethod):
-            return "have received %s immediately before \(otherMethod)"
+            return "have received \(method) immediately before \(otherMethod)"
         case .after(let otherMethod):
-            return "have received %s after \(otherMethod)"
+            return "have received \(method) after \(otherMethod)"
         case .immediatelyAfter(let otherMethod):
-            return "have received %s immediately after \(otherMethod)"
+            return "have received \(method) immediately after \(otherMethod)"
         }
     }
 }

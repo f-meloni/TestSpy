@@ -45,10 +45,6 @@ public func satisfyPredicateCheck<Spy: TestSpy, P: CallstackPredicate>(_ predica
 }
 
 
-private func expectationFormattableMessage<P: CallstackPredicate>(forPredicate predicate: P) -> String {
-    guard let predicate = predicate as? FormattablePredicate else {
-        return "satisfy the predicate check"
-    }
-    
-    return predicate.formattablePredicateMessage
+private func expectationFormattableMessage<P: CallstackPredicate, Method>(forPredicate predicate: P, method: Method) -> String where Method == CallstackPredicate.Method {
+    return predicate.description(forMethod: method)
 }
