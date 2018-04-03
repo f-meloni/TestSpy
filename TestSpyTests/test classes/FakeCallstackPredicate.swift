@@ -18,4 +18,8 @@ final class FakeCallstackPredicate: CallstackPredicate {
         receivedMethod = method
         return stubbedResponse
     }
+    
+    func description(forMethod method: TestMethod) -> String {
+        return "return \(stubbedResponse) for method \(method)"
+    }
 }
