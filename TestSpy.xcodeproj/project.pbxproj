@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		235800A3207380A40018B105 /* TestSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23580099207380A40018B105 /* TestSpy.framework */; };
-		235800A8207380A40018B105 /* TestSpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800A7207380A40018B105 /* TestSpyTests.swift */; };
-		235800AA207380A40018B105 /* TestSpy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2358009C207380A40018B105 /* TestSpy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		235800B42073811B0018B105 /* TestSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800B32073811B0018B105 /* TestSpy.swift */; };
+		235800B6207381EF0018B105 /* CallstackPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800B5207381EF0018B105 /* CallstackPredicate.swift */; };
+		235800BA20738AE40018B105 /* CallstackMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800B920738AE40018B105 /* CallstackMatcher.swift */; };
+		235800BF20738BE40018B105 /* TestSpy+Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800BE20738BE40018B105 /* TestSpy+Matchers.swift */; };
+		235800C220738D670018B105 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235800C120738D670018B105 /* Nimble.framework */; };
+		235800C4207395C70018B105 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235800C3207395C70018B105 /* Quick.framework */; };
+		235800C6207395E70018B105 /* TestSpySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800C5207395E70018B105 /* TestSpySpec.swift */; };
+		235800C8207396560018B105 /* CallStackContainerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800C7207396560018B105 /* CallStackContainerSpec.swift */; };
+		235800CA2073984F0018B105 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235800C120738D670018B105 /* Nimble.framework */; };
+		235800CC2073A6F60018B105 /* CallstackContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800CB2073A6F60018B105 /* CallstackContainer.swift */; };
+		235800CE2073AB140018B105 /* FakeCallstackPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800CD2073AB140018B105 /* FakeCallstackPredicate.swift */; };
+		235800D02073AB4C0018B105 /* TestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800CF2073AB4C0018B105 /* TestMethod.swift */; };
+		235800D22073B05B0018B105 /* CallstackMatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D12073B05B0018B105 /* CallstackMatcherSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +34,21 @@
 
 /* Begin PBXFileReference section */
 		23580099207380A40018B105 /* TestSpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestSpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2358009C207380A40018B105 /* TestSpy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSpy.h; sourceTree = "<group>"; };
 		2358009D207380A40018B105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		235800A2207380A40018B105 /* TestSpyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestSpyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		235800A7207380A40018B105 /* TestSpyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSpyTests.swift; sourceTree = "<group>"; };
 		235800A9207380A40018B105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		235800B32073811B0018B105 /* TestSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSpy.swift; sourceTree = "<group>"; };
+		235800B5207381EF0018B105 /* CallstackPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallstackPredicate.swift; sourceTree = "<group>"; };
+		235800B920738AE40018B105 /* CallstackMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallstackMatcher.swift; sourceTree = "<group>"; };
+		235800BE20738BE40018B105 /* TestSpy+Matchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestSpy+Matchers.swift"; sourceTree = "<group>"; };
+		235800C120738D670018B105 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		235800C3207395C70018B105 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		235800C5207395E70018B105 /* TestSpySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSpySpec.swift; sourceTree = "<group>"; };
+		235800C7207396560018B105 /* CallStackContainerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStackContainerSpec.swift; sourceTree = "<group>"; };
+		235800CB2073A6F60018B105 /* CallstackContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallstackContainer.swift; sourceTree = "<group>"; };
+		235800CD2073AB140018B105 /* FakeCallstackPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCallstackPredicate.swift; sourceTree = "<group>"; };
+		235800CF2073AB4C0018B105 /* TestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMethod.swift; sourceTree = "<group>"; };
+		235800D12073B05B0018B105 /* CallstackMatcherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallstackMatcherSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235800C220738D670018B105 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				235800A3207380A40018B105 /* TestSpy.framework in Frameworks */,
+				235800CA2073984F0018B105 /* Nimble.framework in Frameworks */,
+				235800C4207395C70018B105 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +78,7 @@
 				2358009B207380A40018B105 /* TestSpy */,
 				235800A6207380A40018B105 /* TestSpyTests */,
 				2358009A207380A40018B105 /* Products */,
+				235800C020738D660018B105 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +94,8 @@
 		2358009B207380A40018B105 /* TestSpy */ = {
 			isa = PBXGroup;
 			children = (
-				2358009C207380A40018B105 /* TestSpy.h */,
+				235800BD20738BBB0018B105 /* Nimble Matchers */,
+				235800B7207388F10018B105 /* TestSpy */,
 				2358009D207380A40018B105 /* Info.plist */,
 			);
 			path = TestSpy;
@@ -80,10 +104,58 @@
 		235800A6207380A40018B105 /* TestSpyTests */ = {
 			isa = PBXGroup;
 			children = (
-				235800A7207380A40018B105 /* TestSpyTests.swift */,
+				235800D32073B0B00018B105 /* test classes */,
 				235800A9207380A40018B105 /* Info.plist */,
+				235800C5207395E70018B105 /* TestSpySpec.swift */,
+				235800C7207396560018B105 /* CallStackContainerSpec.swift */,
+				235800D12073B05B0018B105 /* CallstackMatcherSpec.swift */,
 			);
 			path = TestSpyTests;
+			sourceTree = "<group>";
+		};
+		235800B7207388F10018B105 /* TestSpy */ = {
+			isa = PBXGroup;
+			children = (
+				235800B820738AD50018B105 /* Predicates */,
+				235800B32073811B0018B105 /* TestSpy.swift */,
+				235800CB2073A6F60018B105 /* CallstackContainer.swift */,
+			);
+			path = TestSpy;
+			sourceTree = "<group>";
+		};
+		235800B820738AD50018B105 /* Predicates */ = {
+			isa = PBXGroup;
+			children = (
+				235800B5207381EF0018B105 /* CallstackPredicate.swift */,
+				235800B920738AE40018B105 /* CallstackMatcher.swift */,
+			);
+			path = Predicates;
+			sourceTree = "<group>";
+		};
+		235800BD20738BBB0018B105 /* Nimble Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				235800BE20738BE40018B105 /* TestSpy+Matchers.swift */,
+			);
+			path = "Nimble Matchers";
+			sourceTree = "<group>";
+		};
+		235800C020738D660018B105 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				235800C3207395C70018B105 /* Quick.framework */,
+				235800C120738D670018B105 /* Nimble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		235800D32073B0B00018B105 /* test classes */ = {
+			isa = PBXGroup;
+			children = (
+				235800CD2073AB140018B105 /* FakeCallstackPredicate.swift */,
+				235800CF2073AB4C0018B105 /* TestMethod.swift */,
+			);
+			path = "test classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +165,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				235800AA207380A40018B105 /* TestSpy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,9 +219,11 @@
 				TargetAttributes = {
 					23580098207380A40018B105 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					235800A1207380A40018B105 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -194,6 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235800B6207381EF0018B105 /* CallstackPredicate.swift in Sources */,
+				235800BA20738AE40018B105 /* CallstackMatcher.swift in Sources */,
+				235800CC2073A6F60018B105 /* CallstackContainer.swift in Sources */,
+				235800B42073811B0018B105 /* TestSpy.swift in Sources */,
+				235800BF20738BE40018B105 /* TestSpy+Matchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				235800A8207380A40018B105 /* TestSpyTests.swift in Sources */,
+				235800D02073AB4C0018B105 /* TestMethod.swift in Sources */,
+				235800C6207395E70018B105 /* TestSpySpec.swift in Sources */,
+				235800CE2073AB140018B105 /* FakeCallstackPredicate.swift in Sources */,
+				235800D22073B05B0018B105 /* CallstackMatcherSpec.swift in Sources */,
+				235800C8207396560018B105 /* CallStackContainerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,12 +421,17 @@
 		235800AE207380A40018B105 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestSpy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -355,6 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = franco.meloni.TestSpy;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,12 +451,17 @@
 		235800AF207380A40018B105 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestSpy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -387,15 +480,23 @@
 		235800B1207380A40018B105 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestSpyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = franco.meloni.TestSpyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -404,10 +505,17 @@
 		235800B2207380A40018B105 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestSpyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
