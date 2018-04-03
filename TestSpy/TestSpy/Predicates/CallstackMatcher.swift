@@ -8,7 +8,7 @@
 
 public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
     case times(Int)
-    case atLeast(Int)
+    case atLeast(times: Int)
     case never
     case any
     case before(T)

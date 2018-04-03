@@ -6,11 +6,15 @@
 //  Copyright © 2018 Franco Meloni. All rights reserved.
 //
 
-public struct CallstackContainer<T: Equatable>: Equatable {
+public struct CallstackContainer<T: Equatable>: Equatable, CustomStringConvertible {
     var callstack: [T] = []
     
     var isEmpty: Bool {
         return callstack.isEmpty
+    }
+    
+    public var description: String {
+        return "[" + callstack.map { String(describing: $0) }.joined(separator: ", ") + "]"
     }
     
     public init() { }
