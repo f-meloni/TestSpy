@@ -19,7 +19,7 @@ class TestSpy_MatchersSpec: QuickSpec {
                 testSpy = TestSpyObject()
             }
             
-            context("When the satisfyPredicateCheck is used") {
+            context("When the satisfyPredicateCheck matcher is used") {
                 var stubbedPredicate: FakeCallstackPredicate!
                 
                 beforeEach {
@@ -27,14 +27,25 @@ class TestSpy_MatchersSpec: QuickSpec {
                 }
                 
 
-                it("Returns true if the check is satisfied") {
+                it("Matches if the check is satisfied") {
                     stubbedPredicate.stubbedResponse = true
                     expect(testSpy).to(satisfyPredicateCheck(stubbedPredicate, method: .method1))
                 }
                 
-                it("Returns false if the check is not satisfied") {
+                it("Doesn't match if the check is not satisfied") {
                     stubbedPredicate.stubbedResponse = false
                     expect(testSpy).toNot(satisfyPredicateCheck(stubbedPredicate, method: .method1))
+                }
+            }
+            
+            context("When the beEmpty matcher is used") {
+                it("Matches if the callstack is empty") {
+                    expect(testSpy).to(beEmpty())
+                }
+                
+                it("Doesn't match if the check is not satisfied") {
+                    testSpy.callstack.record(.method1)
+                    expect(testSpy).toNot(beEmpty())
                 }
             }
         }
