@@ -72,7 +72,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'atLeast(2)' matcher") {
             beforeEach {
-                matcher = .atLeast(2)
+                matcher = .atLeast(times: 2)
             }
             
             context("When the check is called") {

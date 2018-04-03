@@ -20,6 +20,9 @@
 		235800CE2073AB140018B105 /* FakeCallstackPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800CD2073AB140018B105 /* FakeCallstackPredicate.swift */; };
 		235800D02073AB4C0018B105 /* TestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800CF2073AB4C0018B105 /* TestMethod.swift */; };
 		235800D22073B05B0018B105 /* CallstackMatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D12073B05B0018B105 /* CallstackMatcherSpec.swift */; };
+		235800D52073B7480018B105 /* TestSpy+MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D42073B7480018B105 /* TestSpy+MatchersSpec.swift */; };
+		235800D72073B7F90018B105 /* TestSpyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D62073B7F90018B105 /* TestSpyObject.swift */; };
+		235800D92073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D82073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		235800CD2073AB140018B105 /* FakeCallstackPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCallstackPredicate.swift; sourceTree = "<group>"; };
 		235800CF2073AB4C0018B105 /* TestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMethod.swift; sourceTree = "<group>"; };
 		235800D12073B05B0018B105 /* CallstackMatcherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallstackMatcherSpec.swift; sourceTree = "<group>"; };
+		235800D42073B7480018B105 /* TestSpy+MatchersSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestSpy+MatchersSpec.swift"; sourceTree = "<group>"; };
+		235800D62073B7F90018B105 /* TestSpyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSpyObject.swift; sourceTree = "<group>"; };
+		235800D82073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallstackMatchers+NimbleSpec.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +110,13 @@
 		235800A6207380A40018B105 /* TestSpyTests */ = {
 			isa = PBXGroup;
 			children = (
-				235800D32073B0B00018B105 /* test classes */,
+				235800D32073B0B00018B105 /* Test Classes */,
 				235800A9207380A40018B105 /* Info.plist */,
 				235800C5207395E70018B105 /* TestSpySpec.swift */,
 				235800C7207396560018B105 /* CallStackContainerSpec.swift */,
 				235800D12073B05B0018B105 /* CallstackMatcherSpec.swift */,
+				235800D42073B7480018B105 /* TestSpy+MatchersSpec.swift */,
+				235800D82073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift */,
 			);
 			path = TestSpyTests;
 			sourceTree = "<group>";
@@ -149,13 +157,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		235800D32073B0B00018B105 /* test classes */ = {
+		235800D32073B0B00018B105 /* Test Classes */ = {
 			isa = PBXGroup;
 			children = (
 				235800CD2073AB140018B105 /* FakeCallstackPredicate.swift */,
 				235800CF2073AB4C0018B105 /* TestMethod.swift */,
+				235800D62073B7F90018B105 /* TestSpyObject.swift */,
 			);
-			path = "test classes";
+			path = "Test Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,11 +288,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235800D72073B7F90018B105 /* TestSpyObject.swift in Sources */,
+				235800D52073B7480018B105 /* TestSpy+MatchersSpec.swift in Sources */,
 				235800D02073AB4C0018B105 /* TestMethod.swift in Sources */,
 				235800C6207395E70018B105 /* TestSpySpec.swift in Sources */,
 				235800CE2073AB140018B105 /* FakeCallstackPredicate.swift in Sources */,
 				235800D22073B05B0018B105 /* CallstackMatcherSpec.swift in Sources */,
 				235800C8207396560018B105 /* CallStackContainerSpec.swift in Sources */,
+				235800D92073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

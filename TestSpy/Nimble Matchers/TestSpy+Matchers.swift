@@ -23,7 +23,7 @@ public func beEmpty<Spy: TestSpy>() -> Predicate<Spy> {
         }
 
         return PredicateResult(bool: spy.callstack.isEmpty, message: ExpectationMessage.expectedTo(
-            "\(expectationMessage), but only received: \(spy.callstack)")
+            "\(expectationMessage), but received: \(spy.callstack)")
         )
     }
     
@@ -39,7 +39,7 @@ public func satisfyPredicateCheck<Spy: TestSpy, P: CallstackPredicate>(_ predica
             )
         }
         return PredicateResult(bool: spy.check(method: method, predicate: predicate), message: ExpectationMessage.expectedTo(
-            "\(expectationMessage), but only received: \(spy.callstack)")
+            "\(expectationMessage), but received: \(spy.callstack)")
         )
     }
 }

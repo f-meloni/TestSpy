@@ -6,7 +6,7 @@
 //  Copyright © 2018 Franco Meloni. All rights reserved.
 //
 
-enum TestMethod {
+enum TestMethod: Equatable {
     case method1
     case method2
     case method3
