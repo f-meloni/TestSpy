@@ -28,7 +28,7 @@ Then when the method you want to test is called you have to record the method in
 ```swift
 extension TestClass: TestProtocol {
     func test() {
-        callstack.record(.method)
+        callstack.record(.test)
     }
     
     func testWithArgument(argument: Int) {
@@ -56,4 +56,4 @@ Franco Meloni, franco.meloni91@gmail.com
 
 ## License
 
-EasyToast is available under the MIT license. See the LICENSE file for more info.
+TestSpy is available under the MIT license. See the LICENSE file for more info.
