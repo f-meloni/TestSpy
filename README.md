@@ -2,6 +2,7 @@
 
 ![Swift 4.0](https://img.shields.io/badge/Swift-4.0-blue.svg)
 [![Build Status](https://www.bitrise.io/app/17161483bf6ebfbb/status.svg?token=IUjjwJMbY1Z0bf_b24e_Vg&branch=master)](https://www.bitrise.io/app/17161483bf6ebfbb)
+![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Swift Framework for Spy Objects
 
