@@ -40,14 +40,38 @@ extension TestClass: TestProtocol {
 ## Use the spy object in tests
 
 ``` swift
-XCTAssertTrue(spyObject.check(method: .test, predicate: .before(testWithArgument(argument:1))))
+XCTAssertTrue(spyObject.check(method: .test, predicate: .any))
 ```
 
 ## Use the spy object in tests with Nimble
 
 ```swift
 expect(spyObject).to(haveRecived(.test))
-expect(spyObject).to(haveReceived(.test), before(testWithArgument(argument:1)))
+```
+
+## Callstack Matchers
+
+There are some default matchers that can be used on the test to check that callstack content.
+
+The main matchers are:
+
+- times(Int)
+- atLeast(times: Int)
+- never
+- any
+- before(Method)
+- immediatelyBefore(Method)
+- after(Method)
+- immediatelyAfter(Method)
+
+#### Usage
+```swift
+XCTAssertTrue(spyObject.check(method: .test, predicate: .before(testWithArgument(argument: 1))))
+```
+
+#### Usage with Nimble
+```swift 
+expect(spyObject).to(haveReceived(.test), before(.testWithArgument(argument: 1)))
 ```
 
 ## Author
