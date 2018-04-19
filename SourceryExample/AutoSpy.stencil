@@ -1,0 +1,83 @@
+{# If you add a single import in the args you get a String, but multiple import are Arrays, then given that you don't have a lot of possibilities on stencil, the best way is check the class description (you can use == only on Numbers, Bools and Strings) #}
+{% if argument.import.class.description == "Swift._NSContiguousString" %}
+import {{ argument.import }}
+{% else %}
+{% for importName in argument.import %}
+import {{ importName }}
+{% endfor %}
+{% endif %}
+import TestSpy
+@testable import {{ argument.module }}
+
+// swiftlint:disable force_cast
+
+{% macro parameterType typeName typeToReplace replaceType %}{% if typeName.description == typeToReplace %}{{ genericReplaceType }}{% else %}{{ typeName }}{% endif %}{% endmacro %}
+
+{% macro methodCaseName method skipParameter typeToReplace replaceType %}{{ method.callName }}{% if method.parameters.count > 0 %}({% for param in method.parameters where param.name != skipParameter|default:"" and param.typeName.isClosure == 0 %}{{ param.name }}: {% call parameterType param.typeName genericType genericReplaceType %}{% if not forloop.last%}, {% endif %}{% endfor %}){% endif %}{% endmacro %}
+
+{% macro mockOptionalVariable variable %}
+    public var {% call mockedVariableName variable %}: {{ variable.typeName }}
+{% endmacro %}
+
+{% macro mockNonOptionalArrayOrDictionaryVariable variable %}
+    public var {% call mockedVariableName variable %}: {{ variable.typeName }} = {% if variable.isArray %}[]{% elif variable.isDictionary %}[:]{% endif %}
+{% endmacro %}
+
+{% macro mockNonOptionalVariable variable %}
+    public var {% call mockedVariableName variable %}: {{ variable.typeName }} {
+        get { return {% call underlyingMockedVariableName variable %} }
+        set(value) { {% call underlyingMockedVariableName variable %} = value }
+    }
+    public var {% call underlyingMockedVariableName variable %}: {{ variable.typeName }}!
+{% endmacro %}
+
+{% macro underlyingMockedVariableName variable %}underlying{{ variable.name|upperFirstLetter }}{% endmacro %}
+{% macro mockedVariableName variable %}{{ variable.name }}{% endmacro %}
+
+{% macro spyCase method skipParameter genericType genericReplaceType %}
+    {% if not method.isInitializer %}
+        case {% call methodCaseName method skipParameter genericType genericReplaceType %}
+    {% endif %}
+{% endmacro %}
+
+{% macro addDefaultInitialiser initialisers %}
+{% if initialisers == "[]" %}
+    public init() {}
+{% endif %}
+{% endmacro %}
+
+{% for type in types.protocols where type.annotations.autoSpy %}
+// Spy for {{ type.name }}
+public class Spy{{ type.name }}: {{ type.name }}, TestSpy {
+	public enum Method: Equatable {
+	{% for method in type.allMethods|!definedInExtension %}
+		{% call spyCase method type.annotations.skipParameter type.annotations.typeToReplace type.annotations.replaceType %}
+	{% endfor %}
+	}
+
+	{% for variable in type.allVariables|!definedInExtension %}
+    {% if variable.isOptional %}{% call mockOptionalVariable variable %}{% elif variable.isArray or variable.isDictionary %}{% call mockNonOptionalArrayOrDictionaryVariable variable %}{% else %}{% call mockNonOptionalVariable variable %}{% endif %}
+	{% endfor %}
+
+	public var callstack = CallstackContainer<Method>()
+
+    {% set initialisers %}{{ type.allMethods|initializer }}{% endset %}
+    {% call addDefaultInitialiser initialisers %}
+
+	{% for method in type.allMethods|!definedInExtension %}
+	{% if method.isInitializer %}
+    public required {{method.name}} {}
+    {% else %}
+    {% if not method.returnTypeName.isVoid %}
+    public var {{ method.shortName }}Result: {{ method.returnTypeName }}!
+    {% endif %}
+    public func {{ method.name }}{% if method.throws %} throws{% endif %}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
+        callstack.record(.{{ method.callName }}{% if method.parameters.count > 0 %}({% for param in method.parameters where param.name != type.annotations.skipParameter|default:"" and param.typeName.isClosure == 0 %}{{ param.name }}: {{param.name}} {% if param.typeName.description == type.annotations.typeToReplace %} as! {{ type.annotations.replaceType }} {% endif %}{% if not forloop.last%}, {% endif %}{% endfor %}){% endif %})
+        {% if not method.returnTypeName.isVoid %}
+        return {{ method.shortName }}Result
+        {% endif %}
+    }
+	{% endif %}
+	{% endfor %}
+}
+{% endfor %}
