@@ -79,11 +79,13 @@ expect(spyObject).to(haveReceived(.test), before(.testWithArgument(argument: 1))
 [Sourcery](https://github.com/krzysztofzablocki/Sourcery) offers a good way to automatically generate spy objects.
 You can find an example stancil file to generate Spy Objects  [here](https://raw.githubusercontent.com/f-meloni/TestSpy/master/SourceryExample/AutoSpy.stencil)
 
-to use it add a script phase to your test project with
+to use it:
+- add a script phase, before the compile sources phase, in  your test project with:
 ```bash
 sourcery --sources "$SOURCESPATH" --templates "$TEMPLATESPATH" --output "$OUTPUTPATH" --args module="$CURRENTFRAMEWORKNAME",import="Foundation",import="UIKit"...
 ```
-Before the compile sources phase and include the files generated at `$OUTPUTPATH` on your test project
+- add this annotation to the protocol you want to spy `// sourcery: autoSpy`
+- include the files generated at `$OUTPUTPATH` on your test project
 
 ## Author
 
