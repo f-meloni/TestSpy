@@ -75,6 +75,16 @@ XCTAssertTrue(spyObject.check(method: .test, predicate: .before(testWithArgument
 expect(spyObject).to(haveReceived(.test), before(.testWithArgument(argument: 1)))
 ```
 
+## Automatically generate Spy Objects with Sourcery
+[Sourcery](https://github.com/krzysztofzablocki/Sourcery) offers a good way to automatically generate spy objects.
+You can find an example stancil file to generate Spy Objects  [here](https://raw.githubusercontent.com/f-meloni/TestSpy/master/SourceryExample/AutoSpy.stencil)
+
+to use it add a script phase to your test project with
+```bash
+sourcery --sources "$SOURCESPATH" --templates "$TEMPLATESPATH" --output "$OUTPUTPATH" --args module="$CURRENTFRAMEWORKNAME",import="Foundation",import="UIKit"...
+```
+Before the compile sources phase and include the files generated at `$OUTPUTPATH` on your test project
+
 ## Author
 
 Franco Meloni, franco.meloni91@gmail.com
