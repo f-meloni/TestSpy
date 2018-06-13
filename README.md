@@ -47,7 +47,7 @@ XCTAssertTrue(spyObject.check(method: .test, predicate: .any))
 ## Use the spy object in tests with Nimble
 
 ```swift
-expect(spyObject).to(haveRecived(.test))
+expect(spyObject).to(haveReceived(.test))
 ```
 
 ## Callstack Matchers
