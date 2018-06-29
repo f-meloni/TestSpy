@@ -72,7 +72,7 @@ XCTAssertTrue(spyObject.check(method: .test, predicate: .before(testWithArgument
 
 #### Usage with Nimble
 ```swift 
-expect(spyObject).to(haveReceived(.test), before(.testWithArgument(argument: 1)))
+expect(spyObject).to(haveReceived(.test), .before(.testWithArgument(argument: 1)))
 ```
 
 ## Automatically generate Spy Objects with Sourcery
