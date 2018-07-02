@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'TestSpy'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.license = 'MIT'
   s.summary = 'Swift Framework for Spy Objects'
   s.homepage = 'https://github.com/f-meloni/TestSpy'
