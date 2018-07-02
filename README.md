@@ -41,7 +41,7 @@ extension TestClass: TestProtocol {
 ## Use the spy object in tests
 
 ``` swift
-XCTAssertTrue(spyObject.check(method: .test, predicate: .any))
+XCTAssertTrue(spyObject.check(method: .test, predicate: CallstackMatcher.any))
 ```
 
 ## Use the spy object in tests with Nimble
@@ -67,7 +67,7 @@ The main matchers are:
 
 #### Usage
 ```swift
-XCTAssertTrue(spyObject.check(method: .test, predicate: .before(testWithArgument(argument: 1))))
+XCTAssertTrue(spyObject.check(method: .test, predicate: CallstackMatcher.before(.testWithArgument(argument: 1))))
 ```
 
 #### Usage with Nimble
