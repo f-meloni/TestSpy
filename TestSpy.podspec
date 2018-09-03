@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/f-meloni/TestSpy.git', :tag => s.version }
 
   s.ios.deployment_target = '9.0'
-  s.source_files = 'TestSpy/**/*.swift'
+  s.source_files = 'Sources/TestSpy/**/*.swift'
   s.dependency 'Nimble', '~> 7.1'
 end
