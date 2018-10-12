@@ -4,6 +4,7 @@
 [![Build Status](https://app.bitrise.io/app/17161483bf6ebfbb/status.svg?token=IUjjwJMbY1Z0bf_b24e_Vg&branch=master)](https://app.bitrise.io/app/17161483bf6ebfbb)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 [![Pod version](https://img.shields.io/cocoapods/v/TestSpy.svg?style=flat)](https://cocoapods.org/pods/TestSpy)
+[![codecov](https://codecov.io/gh/f-meloni/TestSpy/branch/master/graph/badge.svg)](https://codecov.io/gh/f-meloni/TestSpy)
 
 Swift Framework for Spy Objects
 
