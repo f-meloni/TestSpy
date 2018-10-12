@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TestSpy::TestSpy"
+               BlueprintIdentifier = "23580098207380A40018B105"
                BuildableName = "TestSpy.framework"
                BlueprintName = "TestSpy"
                ReferencedContainer = "container:TestSpy.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TestSpy::TestSpyTests"
+               BlueprintIdentifier = "235800A1207380A40018B105"
                BuildableName = "TestSpyTests.xctest"
                BlueprintName = "TestSpyTests"
                ReferencedContainer = "container:TestSpy.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "TestSpy::TestSpy"
+            BlueprintIdentifier = "23580098207380A40018B105"
             BuildableName = "TestSpy.framework"
             BlueprintName = "TestSpy"
             ReferencedContainer = "container:TestSpy.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "TestSpy::TestSpy"
+            BlueprintIdentifier = "23580098207380A40018B105"
             BuildableName = "TestSpy.framework"
             BlueprintName = "TestSpy"
             ReferencedContainer = "container:TestSpy.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "TestSpy::TestSpy"
+            BlueprintIdentifier = "23580098207380A40018B105"
             BuildableName = "TestSpy.framework"
             BlueprintName = "TestSpy"
             ReferencedContainer = "container:TestSpy.xcodeproj">
