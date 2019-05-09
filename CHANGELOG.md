@@ -1,4 +1,4 @@
-### Version 0.4
+### Version 0.4.0
 - Update Nimble to 8.0
 - Update to swift 5
 
