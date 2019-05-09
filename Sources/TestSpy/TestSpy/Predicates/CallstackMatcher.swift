@@ -61,8 +61,8 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
 
 private extension CallstackMatcher {
     private func check(method: T, isBefore otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.index(of: method),
-            let otherMethodIndex = callstack.index(of: otherMethod) else {
+        guard let methodIndex = callstack.firstIndex(of: method),
+            let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
         
@@ -70,8 +70,8 @@ private extension CallstackMatcher {
     }
     
     private func check(method: T, isImmediatelyBefore otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.index(of: method),
-            let otherMethodIndex = callstack.index(of: otherMethod) else {
+        guard let methodIndex = callstack.firstIndex(of: method),
+            let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
         
@@ -79,8 +79,8 @@ private extension CallstackMatcher {
     }
     
     private func check(method: T, isAfter otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.index(of: method),
-            let otherMethodIndex = callstack.index(of: otherMethod) else {
+        guard let methodIndex = callstack.firstIndex(of: method),
+            let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
         
@@ -88,8 +88,8 @@ private extension CallstackMatcher {
     }
     
     private func check(method: T, isImmediatelyAfter otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.index(of: method),
-            let otherMethodIndex = callstack.index(of: otherMethod) else {
+        guard let methodIndex = callstack.firstIndex(of: method),
+            let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
         

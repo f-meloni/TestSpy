@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -11,8 +11,8 @@ let package = Package(
             targets: ["TestSpy"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble", from: "7.2.0"),
-        .package(url: "https://github.com/Quick/Quick", from: "1.3.1")
+        .package(url: "https://github.com/Quick/Nimble", from: "8.0.1"),
+        .package(url: "https://github.com/Quick/Quick", from: "2.1.0")
     ],
     targets: [
         .target(
@@ -21,5 +21,6 @@ let package = Package(
         .testTarget(
             name: "TestSpyTests",
             dependencies: ["TestSpy", "Quick"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
