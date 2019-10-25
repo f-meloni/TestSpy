@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import TestSpy
 
-class TestSpy_MatchersSpec: QuickSpec {
+final class TestSpy_MatchersSpec: QuickSpec {
     override func spec() {
         var testSpy: TestSpyObject!
         
