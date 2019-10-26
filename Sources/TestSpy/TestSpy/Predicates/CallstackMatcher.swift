@@ -11,6 +11,7 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
     case atLeast(times: Int)
     case never
     case any
+    case only
     case before(T)
     case immediatelyBefore(T)
     case after(T)
@@ -26,6 +27,8 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
             return !callstack.contains(method)
         case .any:
             return callstack.contains(method)
+        case .only:
+            return callstack == [method]
         case .before(let otherMethod):
             return check(method: method, isBefore: otherMethod, onCallstack: callstack)
         case .immediatelyBefore(let otherMethod):
@@ -47,6 +50,8 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
             return "have not received \(method)"
         case .any:
             return "have received \(method)"
+        case .only:
+            return "have received only \(method)"
         case .before(let otherMethod):
             return "have received \(method) before \(otherMethod)"
         case .immediatelyBefore(let otherMethod):

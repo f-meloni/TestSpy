@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import TestSpy
 
-class CallstackMatchers_NimbleSpec: QuickSpec {
+final class CallstackMatchers_NimbleSpec: QuickSpec {
     override func spec() {
         var testSpy: TestSpyObject!
         
@@ -31,13 +31,30 @@ class CallstackMatchers_NimbleSpec: QuickSpec {
             }
             
             context("When the haveReceived matcher is called with 'never'") {
-                it("Matches false if the method is not contained in the callstack") {
+                it("Matches if the method is not contained in the callstack") {
                     expect(testSpy).to(haveReceived(.method1, .never))
                 }
                 
                 it("Doesn't match if the method is contained in the callstack") {
                     testSpy.callstack.callstack = [.method1]
                     expect(testSpy).toNot(haveReceived(.method1, .never))
+                }
+            }
+            
+            context("When the haveReceived matcher is called with 'only'") {
+                it("Matched if the only method is contained in the callstack") {
+                    testSpy.callstack.callstack = [.method1]
+                    expect(testSpy).to(haveReceived(.method1, .only))
+                }
+                
+                it("Doesn't match if the method is not contained in the callstack") {
+                    expect(testSpy).toNot(haveReceived(.method1, .only))
+                }
+                
+                it("Doesn't matches if the method is contained in the callstack, " +
+                    "but there is another method too") {
+                    testSpy.callstack.callstack = [.method1, .method2]
+                    expect(testSpy).toNot(haveReceived(.method1, .only))
                 }
             }
             
