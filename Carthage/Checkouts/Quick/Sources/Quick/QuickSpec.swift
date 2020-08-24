@@ -5,8 +5,8 @@ import XCTest
 
 #if SWIFT_PACKAGE
 
-#if canImport(QuickSpecBase)
-import QuickSpecBase
+#if canImport(QuickObjCRuntime)
+import QuickObjCRuntime
 
 public typealias QuickSpecBase = _QuickSpecBase
 #else
@@ -48,36 +48,22 @@ open class QuickSpec: QuickSpecBase {
     /// discovered powered by Objective-C runtime), so we needed the alternative
     /// way.
     override open class var defaultTestSuite: XCTestSuite {
-        configureDefaultTestSuite()
+        QuickConfiguration.configureSubclassesIfNeeded(world: World.sharedWorld)
+
+        // Let's gather examples for each spec classes. This has the same effect
+        // as listing spec classes in `LinuxMain.swift` on Linux.
+        gatherExamplesIfNeeded()
 
         return super.defaultTestSuite
     }
 
-    private static func configureDefaultTestSuite() {
-        let world = World.sharedWorld
-
-        if !world.isConfigurationFinalized {
-            // Perform all configurations (ensures that shared examples have been discovered)
-            world.configure { configuration in
-                qck_enumerateSubclasses(QuickConfiguration.self) { configurationClass in
-                    configurationClass.configure(configuration)
-                }
-            }
-            world.finalizeConfiguration()
-        }
-
-        // Let's gather examples for each spec classes. This has the same effect
-        // as listing spec classes in `LinuxMain.swift` on Linux.
-        _ = allTests
-    }
-
-    override open class func _qck_testMethodSelectors() -> [_QuickSelectorWrapper] {
-        let examples = World.sharedWorld.examples(self)
+    override open class func _qck_testMethodSelectors() -> [String] {
+        let examples = World.sharedWorld.examples(forSpecClass: self)
 
         var selectorNames = Set<String>()
         return examples.map { example in
             let selector = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
-            return _QuickSelectorWrapper(selector: selector)
+            return NSStringFromSelector(selector)
         }
     }
 
@@ -90,11 +76,11 @@ open class QuickSpec: QuickSpecBase {
 
         let originalName = example.name.c99ExtendedIdentifier
         var selectorName = originalName
-        var i: UInt = 2
+        var index: UInt = 2
 
         while selectorNames.contains(selectorName) {
-            selectorName = String(format: "%@_%tu", originalName, i)
-            i += 1
+            selectorName = String(format: "%@_%tu", originalName, index)
+            index += 1
         }
 
         selectorNames.insert(selectorName)
@@ -106,16 +92,11 @@ open class QuickSpec: QuickSpecBase {
     }
 #endif
 
-    static var allTestsCache = [String: [(String, (QuickSpec) -> () throws -> Void)]]()
-
+#if !canImport(Darwin)
     public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
-        if let cached = allTestsCache[String(describing: self)] {
-            return cached
-        }
-
         gatherExamplesIfNeeded()
 
-        let examples = World.sharedWorld.examples(self)
+        let examples = World.sharedWorld.examples(forSpecClass: self)
         let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
             return (example.name, { spec in
                 return {
@@ -124,18 +105,46 @@ open class QuickSpec: QuickSpecBase {
                 }
             })
         }
-        allTestsCache[String(describing: self)] = result
         return result
     }
+#endif
 
     internal static func gatherExamplesIfNeeded() {
         let world = World.sharedWorld
-        let rootExampleGroup = world.rootExampleGroupForSpecClass(self)
-        if rootExampleGroup.examples.isEmpty {
-            world.currentExampleGroup =  rootExampleGroup
-            self.init().spec()
-            world.currentExampleGroup = nil
+        let rootExampleGroup = world.rootExampleGroup(forSpecClass: self)
+        guard rootExampleGroup.examples.isEmpty else {
+            return
         }
+
+        world.performWithCurrentExampleGroup(rootExampleGroup) {
+            self.init().spec()
+        }
+    }
+
+    // MARK: Delegation to `QuickSpec.current`.
+
+    override public func recordFailure(
+        withDescription description: String,
+        inFile filePath: String,
+        atLine lineNumber: Int,
+        expected: Bool
+    ) {
+        guard self === Self.current else {
+            Self.current.recordFailure(
+                withDescription: description,
+                inFile: filePath,
+                atLine: lineNumber,
+                expected: expected
+            )
+            return
+        }
+
+        super.recordFailure(
+            withDescription: description,
+            inFile: filePath,
+            atLine: lineNumber,
+            expected: expected
+        )
     }
 }
 
