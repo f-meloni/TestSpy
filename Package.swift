@@ -11,8 +11,8 @@ let package = Package(
             targets: ["TestSpy"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble", from: "8.0.1"),
-        .package(url: "https://github.com/Quick/Quick", from: "2.1.0")
+        .package(url: "https://github.com/Quick/Nimble", from: "8.1.1"),
+        .package(url: "https://github.com/Quick/Quick", from: "3.0.0")
     ],
     targets: [
         .target(
