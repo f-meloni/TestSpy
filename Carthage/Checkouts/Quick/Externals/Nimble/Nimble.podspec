@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Nimble"
-  s.version      = "8.0.1"
+  s.version      = "9.0.0-rc.1"
   s.summary      = "A Matcher Framework for Swift and Objective-C"
   s.description  = <<-DESC
                    Use Nimble to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar.
@@ -21,15 +21,13 @@ Pod::Spec.new do |s|
   ]
 
   s.osx.exclude_files = [
-    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstructionPosix.swift",
-    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Posix/CwlPreconditionTesting_POSIX.h",
+    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPosixPreconditionTesting/CwlCatchBadInstructionPosix.swift",
   ]
   s.ios.exclude_files = [
-    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstructionPosix.swift",
-    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Posix/CwlPreconditionTesting_POSIX.h",
+    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPosixPreconditionTesting/CwlCatchBadInstructionPosix.swift",
   ]
   s.tvos.exclude_files = [
-    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Mach/CwlPreconditionTesting.h",
+    "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/include/CwlMachBadInstructionHandler.h",
     "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstruction.swift",
     "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlBadInstructionException.swift",
     "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlDarwinDefinitions.swift",
@@ -44,6 +42,7 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-DPRODUCT_NAME=Nimble/Nimble'
   s.pod_target_xcconfig = {
     'APPLICATION_EXTENSION_API_ONLY' => 'YES',
+    'DEFINES_MODULE' => 'YES',
     'ENABLE_BITCODE' => 'NO',
     'OTHER_LDFLAGS' => '$(inherited) -weak-lswiftXCTest -Xlinker -no_application_extension',
     'OTHER_SWIFT_FLAGS' => '$(inherited) -suppress-warnings',
@@ -51,5 +50,9 @@ Pod::Spec.new do |s|
   }
 
   s.cocoapods_version = '>= 1.4.0'
-  s.swift_version = '4.2'
+  if s.respond_to?(:swift_versions) then
+    s.swift_versions = ['5.0']
+  else
+    s.swift_version = '5.0'
+  end
 end

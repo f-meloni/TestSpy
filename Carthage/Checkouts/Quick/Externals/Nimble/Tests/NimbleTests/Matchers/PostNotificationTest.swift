@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import Foundation
 
-final class PostNotificationTest: XCTestCase, XCTestCaseProvider {
+final class PostNotificationTest: XCTestCase {
     let notificationCenter = NotificationCenter()
 
     func testPassesWhenNoNotificationsArePosted() {
@@ -20,8 +20,8 @@ final class PostNotificationTest: XCTestCase, XCTestCaseProvider {
     }
 
     func testPassesWhenAllExpectedNotificationsArePosted() {
-        let foo = NSNumber(value: 1)
-        let bar = NSNumber(value: 2)
+        let foo = 1 as NSNumber
+        let bar = 2 as NSNumber
         let n1 = Notification(name: Notification.Name("Foo"), object: foo)
         let n2 = Notification(name: Notification.Name("Bar"), object: bar)
         expect {
@@ -64,16 +64,12 @@ final class PostNotificationTest: XCTestCase, XCTestCaseProvider {
     }
 
     func testPassesWhenExpectedNotificationEventuallyIsPosted() {
-        #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-            let testNotification = Notification(name: Notification.Name("Foo"), object: nil)
-            expect {
-                deferToMainQueue {
-                    self.notificationCenter.post(testNotification)
-                }
-                return nil
-            }.toEventually(postNotifications(equal([testNotification]), fromNotificationCenter: notificationCenter))
-        #else
-            print("\(#function) is missing because toEventually is not implement on this platform")
-        #endif
+        let testNotification = Notification(name: Notification.Name("Foo"), object: nil)
+        expect {
+            deferToMainQueue {
+                self.notificationCenter.post(testNotification)
+            }
+            return nil
+        }.toEventually(postNotifications(equal([testNotification]), fromNotificationCenter: notificationCenter))
     }
 }
