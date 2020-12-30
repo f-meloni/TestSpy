@@ -9,7 +9,7 @@
 import Nimble
 
 public func haveReceived<Spy: TestSpy>(_ method: Spy.Method, _ matcher: CallstackMatcher<Spy.Method> = .any) -> Predicate<Spy> {
-    return satisfyPredicateCheck(matcher, method: method)
+    return satisfyPredicateCheck(matcher.predicate(method: method), method: method)
 }
 
 public func beEmpty<Spy: TestSpy>() -> Predicate<Spy> {

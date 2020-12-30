@@ -23,8 +23,8 @@ public struct CallstackContainer<T: Equatable>: Equatable, CustomStringConvertib
         callstack.append(method)
     }
     
-    func check<P: CallstackPredicate>(method: T, predicate: P) -> Bool where P.Method == T {
-        return predicate.check(method: method, against: callstack)
+    func check<P: CallstackPredicate>(predicate: P) -> Bool where P.Method == T {
+        return predicate.check(against: callstack)
     }
     
     public static func ==<T>(lhs: CallstackContainer<T>, rhs: CallstackContainer<T>) -> Bool {

@@ -48,20 +48,20 @@ final class CallStackContainerSpec: QuickSpec {
                 
                 it("Calls the predicate with the correct parameters") {
                     callstackContainer.record(.method2)
-                    _ = callstackContainer.check(method: .method1, predicate: stubbedPredicate)
+                    _ = callstackContainer.check(predicate: stubbedPredicate)
                     
-                    expect(stubbedPredicate.receivedMethod) == .method1
+                    expect(stubbedPredicate.receivedMethod) == nil
                     expect(stubbedPredicate.receivedCallstack) == callstackContainer.callstack
                 }
                 
                 it("Returns true if the check is satisfied") {
                     stubbedPredicate.stubbedResponse = true
-                    expect(callstackContainer.check(method: .method1, predicate: stubbedPredicate)) == true
+                    expect(callstackContainer.check(predicate: stubbedPredicate)) == true
                 }
                 
                 it("Returns false if the check is not satisfied") {
                     stubbedPredicate.stubbedResponse = false
-                    expect(callstackContainer.check(method: .method1, predicate: stubbedPredicate)) == false
+                    expect(callstackContainer.check(predicate: stubbedPredicate)) == false
                 }
             }
             
