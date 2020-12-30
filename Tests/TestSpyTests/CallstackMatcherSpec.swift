@@ -181,5 +181,27 @@ final class CallstackMatcherSpec: QuickSpec {
                 }
             }
         }
+        describe("Given a Closure matcher") {
+            beforeEach {
+                matcher = AnyCallstackPredicate(predicate:
+                                                  CallStackVerifyer<TestMethod> {
+                                                    method in
+                                                    method == .method1 || method == .method2
+                                                  }
+                )
+            }
+            
+            context("When the check is called") {
+                it("Returns true if the expected method is contained in the callstack") {
+                    expect(matcher.check(against: [.method1])) == true
+                    expect(matcher.check(against: [.method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
+                }
+                
+                it("Returns false if the expected method is not contained in the callstack") {
+                    expect(matcher.check(against: [.method3])) == false
+                }
+            }
+        }
     }
 }
