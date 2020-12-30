@@ -44,13 +44,14 @@ final class CallStackContainerSpec: QuickSpec {
                 
                 beforeEach {
                     stubbedPredicate = FakeCallstackPredicate()
+                    stubbedPredicate.receivedMethod = .method1
                 }
                 
                 it("Calls the predicate with the correct parameters") {
                     callstackContainer.record(.method2)
                     _ = callstackContainer.check(predicate: stubbedPredicate)
                     
-                    expect(stubbedPredicate.receivedMethod) == nil
+                    expect(stubbedPredicate.receivedMethod) == .method1 // this expectation is meaningless to me, since the Predicate method is not a Protocol requirement
                     expect(stubbedPredicate.receivedCallstack) == callstackContainer.callstack
                 }
                 
