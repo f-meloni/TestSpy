@@ -17,42 +17,42 @@ public enum CallstackMatcher<Method: Equatable> {
     case after(Method)
     case immediatelyAfter(Method)
     
-    func predicate(method: Method) -> AnyCallstcakPredicate<Method>{
+    func predicate(method: Method) -> AnyCallstackPredicate<Method>{
         switch self {
             case let .times(times):
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.TimesMatcher(method: method, times: times)
                 )
             case .atLeast(times: let times):
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.AtLeastMatcher(method: method, times: times)
                 )
             case .never:
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.NeverMatcher(expected: method)
                 )
             case .any:
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.AnyMatcher(method: method)
                 )
             case .only:
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.OnlyMatcher(method: method)
                 )
             case let .before(otherMethod):
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.BeforeMatcher(method: method, otherMethod: otherMethod)
                 )
             case let .immediatelyBefore(otherMethod):
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.ImmediatelyBeforeMatcher(method: method, otherMethod: otherMethod)
                 )
             case let .after(otherMethod):
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.AfterMatcher(method: method, otherMethod: otherMethod)
                 )
             case let .immediatelyAfter(otherMethod):
-                return AnyCallstcakPredicate(predicate:
+                return AnyCallstackPredicate(predicate:
                                               CallstackMatchers.ImmediatelyAfterMatcher(method: method, otherMethod: otherMethod)
                 )
         }

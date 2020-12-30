@@ -13,7 +13,7 @@ public protocol CallstackPredicate {
     func verify(method: Method) -> Bool
     func description(forMethod method: Method) -> String
 }
-struct AnyCallstcakPredicate<Method: Equatable>: CallstackPredicate {
+struct AnyCallstackPredicate<Method: Equatable>: CallstackPredicate {
     let  _check: ([Method]) -> Bool
     
     let  _verify:(Method) -> Bool
