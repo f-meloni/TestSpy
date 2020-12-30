@@ -10,6 +10,7 @@ public protocol CallstackPredicate {
     associatedtype Method: Equatable
     
     func check(method: Method, against callstack: [Method]) -> Bool
+    func verify(method: Method, expected: Method) -> Bool
     func description(forMethod method: Method) -> String
 }
 

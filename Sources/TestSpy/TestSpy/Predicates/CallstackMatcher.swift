@@ -17,16 +17,38 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
     case after(T)
     case immediatelyAfter(T)
     
+    public func verify(method: T, expected: T) -> Bool {
+        switch self {
+        case .times:
+            return expected ==  method
+        case .atLeast:
+            return expected == method
+        case .never:
+            return expected !=  method
+        case .any:
+            return expected ==  method
+        case .only:
+            return expected ==  method
+        case .before:
+            return expected ==  method
+        case .immediatelyBefore:
+            return expected ==  method
+        case .after:
+            return expected ==  method
+        case .immediatelyAfter:
+            return expected ==  method
+        }
+    }
     public func check(method: T, against callstack: [T]) -> Bool {
         switch self {
         case .times(let times):
-            return callstack.filter { $0 ==  method}.count == times
+            return callstack.filter {self.verify(method: $0, expected: method)}.count == times
         case .atLeast(let times):
-            return callstack.filter { $0 ==  method}.count >= times
+            return callstack.filter {self.verify(method: $0, expected: method)}.count >= times
         case .never:
-            return !callstack.contains(method)
+            return callstack.allSatisfy{self.verify(method: $0, expected: method)}
         case .any:
-            return callstack.contains(method)
+            return callstack.contains{self.verify(method: $0, expected: method)}
         case .only:
             return callstack == [method]
         case .before(let otherMethod):
@@ -66,7 +88,7 @@ public enum CallstackMatcher<T: Equatable>: CallstackPredicate {
 
 private extension CallstackMatcher {
     private func check(method: T, isBefore otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.firstIndex(of: method),
+        guard let methodIndex = callstack.firstIndex(where: {self.verify(method: $0, expected: method)}),
             let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
@@ -75,7 +97,7 @@ private extension CallstackMatcher {
     }
     
     private func check(method: T, isImmediatelyBefore otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.firstIndex(of: method),
+        guard let methodIndex = callstack.firstIndex(where: {self.verify(method: $0, expected: method)}),
             let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
@@ -84,7 +106,7 @@ private extension CallstackMatcher {
     }
     
     private func check(method: T, isAfter otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.firstIndex(of: method),
+        guard let methodIndex = callstack.firstIndex(where: {self.verify(method: $0, expected: method)}),
             let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }
@@ -93,7 +115,7 @@ private extension CallstackMatcher {
     }
     
     private func check(method: T, isImmediatelyAfter otherMethod: T, onCallstack callstack: [T]) -> Bool {
-        guard let methodIndex = callstack.firstIndex(of: method),
+        guard let methodIndex = callstack.firstIndex(where: {self.verify(method: $0, expected: method)}),
             let otherMethodIndex = callstack.firstIndex(of: otherMethod) else {
                 return false
         }

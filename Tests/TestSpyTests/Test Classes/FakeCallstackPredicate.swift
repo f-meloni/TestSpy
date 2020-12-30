@@ -19,6 +19,10 @@ final class FakeCallstackPredicate: CallstackPredicate {
         return stubbedResponse
     }
     
+    func verify(method: TestMethod, expected: TestMethod) -> Bool {
+        true
+    }
+    
     func description(forMethod method: TestMethod) -> String {
         return "return \(stubbedResponse) for method \(method)"
     }
