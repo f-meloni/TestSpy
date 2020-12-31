@@ -7,7 +7,6 @@
  *		Running on macOS 10.15
  */
 
-// import Foundation
 public struct CallStackVerifyer<Method: Equatable>: CallstackPredicate {
     init(verifyer: @escaping (Method) -> Bool) {
         self.verifyer = verifyer
