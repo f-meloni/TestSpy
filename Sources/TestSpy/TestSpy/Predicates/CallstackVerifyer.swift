@@ -8,7 +8,7 @@
  */
 
 public struct CallStackVerifyer<Method: Equatable>: CallstackPredicate {
-    init(verifyer: @escaping (Method) -> Bool) {
+    public init(verifyer: @escaping (Method) -> Bool) {
         self.verifyer = verifyer
     }
 

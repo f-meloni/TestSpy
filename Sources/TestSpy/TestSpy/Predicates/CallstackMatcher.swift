@@ -17,7 +17,7 @@ public enum CallstackMatcher<Method: Equatable> {
     case after(Method)
     case immediatelyAfter(Method)
 
-    func predicate(for method: Method) -> AnyCallstackPredicate<Method> {
+    public func predicate(for method: Method) -> AnyCallstackPredicate<Method> {
         switch self {
         case let .times(times):
             return AnyCallstackPredicate(predicate: CallstackMatchers.TimesMatcher(method: method, times: times)

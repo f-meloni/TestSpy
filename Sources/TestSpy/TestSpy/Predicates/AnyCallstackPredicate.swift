@@ -7,21 +7,21 @@
  *		Running on macOS 10.15
  */
 
-struct AnyCallstackPredicate<Method: Equatable>: CallstackPredicate {
+public struct AnyCallstackPredicate<Method: Equatable>: CallstackPredicate {
     let _check: ([Method]) -> Bool
 
     let _description: (Method) -> String
 
-    init<P: CallstackPredicate>(predicate: P) where P.Method == Method {
+    public init<P: CallstackPredicate>(predicate: P) where P.Method == Method {
         _check = predicate.check(against:)
         _description = predicate.description(forMethod:)
     }
 
-    func check(against callstack: [Method]) -> Bool {
+    public func check(against callstack: [Method]) -> Bool {
         _check(callstack)
     }
 
-    func description(forMethod method: Method) -> String {
+    public func description(forMethod method: Method) -> String {
         _description(method)
     }
 }
