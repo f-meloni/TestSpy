@@ -23,6 +23,18 @@
 		235800D52073B7480018B105 /* TestSpy+MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D42073B7480018B105 /* TestSpy+MatchersSpec.swift */; };
 		235800D72073B7F90018B105 /* TestSpyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D62073B7F90018B105 /* TestSpyObject.swift */; };
 		235800D92073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235800D82073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift */; };
+		A75BAC0F25A2C0050046487E /* OnlyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0525A2C0050046487E /* OnlyMatcher.swift */; };
+		A75BAC1025A2C0050046487E /* ImmediatelyAfterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0625A2C0050046487E /* ImmediatelyAfterMatcher.swift */; };
+		A75BAC1125A2C0050046487E /* AfterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0725A2C0050046487E /* AfterMatcher.swift */; };
+		A75BAC1225A2C0050046487E /* BeforeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0825A2C0050046487E /* BeforeMatcher.swift */; };
+		A75BAC1325A2C0050046487E /* TimesMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0925A2C0050046487E /* TimesMatcher.swift */; };
+		A75BAC1425A2C0050046487E /* AtleastMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0A25A2C0050046487E /* AtleastMatcher.swift */; };
+		A75BAC1525A2C0050046487E /* NeverMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0B25A2C0050046487E /* NeverMatcher.swift */; };
+		A75BAC1625A2C0050046487E /* CallstackMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0C25A2C0050046487E /* CallstackMatchers.swift */; };
+		A75BAC1725A2C0050046487E /* ImmediatelyBeforeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0D25A2C0050046487E /* ImmediatelyBeforeMatcher.swift */; };
+		A75BAC1825A2C0050046487E /* AnyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0E25A2C0050046487E /* AnyMatcher.swift */; };
+		A75BAC1D25A2C0130046487E /* CallstackVerifyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC1B25A2C0130046487E /* CallstackVerifyer.swift */; };
+		A75BAC1E25A2C0130046487E /* AnyCallstackPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC1C25A2C0130046487E /* AnyCallstackPredicate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +67,18 @@
 		235800D42073B7480018B105 /* TestSpy+MatchersSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestSpy+MatchersSpec.swift"; sourceTree = "<group>"; };
 		235800D62073B7F90018B105 /* TestSpyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSpyObject.swift; sourceTree = "<group>"; };
 		235800D82073C13E0018B105 /* CallstackMatchers+NimbleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallstackMatchers+NimbleSpec.swift"; sourceTree = "<group>"; };
+		A75BAC0525A2C0050046487E /* OnlyMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlyMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0625A2C0050046487E /* ImmediatelyAfterMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmediatelyAfterMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0725A2C0050046487E /* AfterMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0825A2C0050046487E /* BeforeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0925A2C0050046487E /* TimesMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0A25A2C0050046487E /* AtleastMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtleastMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0B25A2C0050046487E /* NeverMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeverMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0C25A2C0050046487E /* CallstackMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallstackMatchers.swift; sourceTree = "<group>"; };
+		A75BAC0D25A2C0050046487E /* ImmediatelyBeforeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmediatelyBeforeMatcher.swift; sourceTree = "<group>"; };
+		A75BAC0E25A2C0050046487E /* AnyMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMatcher.swift; sourceTree = "<group>"; };
+		A75BAC1B25A2C0130046487E /* CallstackVerifyer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallstackVerifyer.swift; sourceTree = "<group>"; };
+		A75BAC1C25A2C0130046487E /* AnyCallstackPredicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCallstackPredicate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +160,11 @@
 		235800B820738AD50018B105 /* Predicates */ = {
 			isa = PBXGroup;
 			children = (
-				235800B5207381EF0018B105 /* CallstackPredicate.swift */,
+				A75BAC1C25A2C0130046487E /* AnyCallstackPredicate.swift */,
+				A75BAC0425A2C0050046487E /* CallStackMatcher */,
 				235800B920738AE40018B105 /* CallstackMatcher.swift */,
+				235800B5207381EF0018B105 /* CallstackPredicate.swift */,
+				A75BAC1B25A2C0130046487E /* CallstackVerifyer.swift */,
 			);
 			path = Predicates;
 			sourceTree = "<group>";
@@ -167,6 +194,23 @@
 				235800D62073B7F90018B105 /* TestSpyObject.swift */,
 			);
 			path = "Test Classes";
+			sourceTree = "<group>";
+		};
+		A75BAC0425A2C0050046487E /* CallStackMatcher */ = {
+			isa = PBXGroup;
+			children = (
+				A75BAC0725A2C0050046487E /* AfterMatcher.swift */,
+				A75BAC0E25A2C0050046487E /* AnyMatcher.swift */,
+				A75BAC0A25A2C0050046487E /* AtleastMatcher.swift */,
+				A75BAC0825A2C0050046487E /* BeforeMatcher.swift */,
+				A75BAC0C25A2C0050046487E /* CallstackMatchers.swift */,
+				A75BAC0625A2C0050046487E /* ImmediatelyAfterMatcher.swift */,
+				A75BAC0D25A2C0050046487E /* ImmediatelyBeforeMatcher.swift */,
+				A75BAC0B25A2C0050046487E /* NeverMatcher.swift */,
+				A75BAC0525A2C0050046487E /* OnlyMatcher.swift */,
+				A75BAC0925A2C0050046487E /* TimesMatcher.swift */,
+			);
+			path = CallStackMatcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,11 +323,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A75BAC1D25A2C0130046487E /* CallstackVerifyer.swift in Sources */,
+				A75BAC1725A2C0050046487E /* ImmediatelyBeforeMatcher.swift in Sources */,
+				A75BAC1625A2C0050046487E /* CallstackMatchers.swift in Sources */,
 				235800B6207381EF0018B105 /* CallstackPredicate.swift in Sources */,
+				A75BAC1525A2C0050046487E /* NeverMatcher.swift in Sources */,
 				235800BA20738AE40018B105 /* CallstackMatcher.swift in Sources */,
+				A75BAC1225A2C0050046487E /* BeforeMatcher.swift in Sources */,
+				A75BAC1825A2C0050046487E /* AnyMatcher.swift in Sources */,
+				A75BAC1E25A2C0130046487E /* AnyCallstackPredicate.swift in Sources */,
+				A75BAC1425A2C0050046487E /* AtleastMatcher.swift in Sources */,
 				235800CC2073A6F60018B105 /* CallstackContainer.swift in Sources */,
+				A75BAC1125A2C0050046487E /* AfterMatcher.swift in Sources */,
 				235800B42073811B0018B105 /* TestSpy.swift in Sources */,
+				A75BAC0F25A2C0050046487E /* OnlyMatcher.swift in Sources */,
+				A75BAC1025A2C0050046487E /* ImmediatelyAfterMatcher.swift in Sources */,
 				235800BF20738BE40018B105 /* TestSpy+Matchers.swift in Sources */,
+				A75BAC1325A2C0050046487E /* TimesMatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
