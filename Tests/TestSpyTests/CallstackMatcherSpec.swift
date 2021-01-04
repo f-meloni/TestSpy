@@ -16,7 +16,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given an 'any' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.any.predicate(method: .method1)
+                matcher = CallstackMatcher.any.predicate(for: .method1)
             }
             
             context("When the check is called") {
@@ -32,7 +32,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'never' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.never.predicate(method: .method1)
+                matcher = CallstackMatcher.never.predicate(for: .method1)
             }
             
             context("When the check is called") {
@@ -48,7 +48,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'times(2)' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.times(2).predicate(method: .method1)
+                matcher = CallstackMatcher.times(2).predicate(for: .method1)
             }
             
             context("When the check is called") {
@@ -72,7 +72,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'atLeast(2)' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.atLeast(times: 2).predicate(method: .method1)
+                matcher = CallstackMatcher.atLeast(times: 2).predicate(for: .method1)
             }
             
             context("When the check is called") {
@@ -96,7 +96,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'before(method)' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.before(.method2).predicate(method: .method1)
+                matcher = CallstackMatcher.before(.method2).predicate(for: .method1)
             }
             
             context("When the check is called") {
@@ -116,7 +116,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given an 'immediatelyBefore(method)' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.immediatelyBefore(.method2).predicate(method: .method1)
+                matcher = CallstackMatcher.immediatelyBefore(.method2).predicate(for: .method1)
             }
             
             context("When the check is called") {
@@ -140,7 +140,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'after(method)' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.after(.method1).predicate(method: .method2)
+                matcher = CallstackMatcher.after(.method1).predicate(for: .method2)
             }
             
             context("When the check is called") {
@@ -160,7 +160,7 @@ final class CallstackMatcherSpec: QuickSpec {
         
         describe("Given a 'immediatelyAfter(method)' matcher") {
             beforeEach {
-                matcher = CallstackMatcher.immediatelyAfter(.method1).predicate(method: .method2)
+                matcher = CallstackMatcher.immediatelyAfter(.method1).predicate(for: .method2)
             }
             
             context("When the check is called") {
