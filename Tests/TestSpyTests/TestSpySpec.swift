@@ -24,14 +24,12 @@ final class TestSpySpec: QuickSpec {
                 
                 beforeEach {
                     stubbedPredicate = FakeCallstackPredicate()
-                    stubbedPredicate.receivedMethod = .method1
                 }
                 
                 it("Calls the predicate with the correct parameters") {
                     testSpy.callstack.record(.method2)
                     _ = testSpy.check(method: .method1, predicate: stubbedPredicate)
                     
-                    expect(stubbedPredicate.receivedMethod) == .method1 // this expectation is meaningless to me, since the Predicate method is not a Protocol requirement
                     expect(stubbedPredicate.receivedCallstack) == testSpy.callstack.callstack
                 }
                 
