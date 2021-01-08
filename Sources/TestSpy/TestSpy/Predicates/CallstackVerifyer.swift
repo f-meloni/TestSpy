@@ -31,6 +31,9 @@ extension CallstackPredicates {
     }
 }
 public extension TestSpy {
+    /// [TestSpy] check callstack with custom verifier against all methods
+    /// - Parameter verifier: checking callstack all satisfy this verifer
+    /// - Returns:true for correct, false for incorrect
     func check(verifier: @escaping (Method) -> Bool) -> Bool {
         return CallstackPredicates.Is(verifier: verifier).check(against: callstack.callstack)
     }
