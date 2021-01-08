@@ -6,31 +6,32 @@
  *
  *		Running on macOS 10.15
  */
-
-public struct CallStackVerifyer<Method: Equatable>: CallstackPredicate {
-    public init(verifyer: @escaping (Method) -> Bool) {
-        self.verifyer = verifyer
-    }
-
-    let verifyer: (Method) -> Bool
-
-    public func verify(method: Method) -> Bool {
-        verifyer(method)
-    }
-
-    public func check(against callstack: [Method]) -> Bool {
-        callstack.allSatisfy {
-            self.verify(method: $0)
+extension CallstackPredicates {
+    
+    public struct Is<Method: Equatable>: CallstackPredicate {
+        public init(verifier: @escaping (Method) -> Bool) {
+            self.verifier = verifier
+        }
+        
+        let verifier: (Method) -> Bool
+        
+        public func verify(method: Method) -> Bool {
+            verifier(method)
+        }
+        
+        public func check(against callstack: [Method]) -> Bool {
+            callstack.allSatisfy {
+                self.verify(method: $0)
+            }
+        }
+        
+        public func description(forMethod method: Method) -> String {
+            "have received \(method)"
         }
     }
-
-    public func description(forMethod method: Method) -> String {
-        "have received \(method)"
-    }
 }
-
 public extension TestSpy {
-    func check(verifeyer: @escaping (Method) -> Bool) -> Bool {
-        return CallStackVerifyer(verifyer: verifeyer).check(against: callstack.callstack)
+    func check(verifier: @escaping (Method) -> Bool) -> Bool {
+        return CallstackPredicates.Is(verifier: verifier).check(against: callstack.callstack)
     }
 }

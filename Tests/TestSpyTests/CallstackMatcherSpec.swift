@@ -184,7 +184,7 @@ final class CallstackMatcherSpec: QuickSpec {
         describe("Given a Closure matcher") {
             beforeEach {
                 matcher = AnyCallstackPredicate(predicate:
-                                                  CallStackVerifyer<TestMethod> {
+                                                  CallstackPredicates.Is<TestMethod> {
                                                     method in
                                                     method == .method1 || method == .method2
                                                   }

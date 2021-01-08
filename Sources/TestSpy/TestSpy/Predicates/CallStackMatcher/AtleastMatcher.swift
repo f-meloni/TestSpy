@@ -6,7 +6,7 @@
  *
  *		Running on macOS 10.15
  */
-public extension CallstackMatchers {
+public extension CallstackPredicates {
     struct AtLeastMatcher<Method: Equatable>: CallstackPredicate {
         let method: Method
         let times: Int

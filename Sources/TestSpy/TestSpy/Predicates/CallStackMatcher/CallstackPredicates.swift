@@ -7,4 +7,4 @@
  *		Running on macOS 10.15
  */
 
-public enum CallstackMatchers {}
+public enum CallstackPredicates {}
