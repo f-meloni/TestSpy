@@ -30,11 +30,11 @@
 		A75BAC1325A2C0050046487E /* TimesMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0925A2C0050046487E /* TimesMatcher.swift */; };
 		A75BAC1425A2C0050046487E /* AtleastMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0A25A2C0050046487E /* AtleastMatcher.swift */; };
 		A75BAC1525A2C0050046487E /* NeverMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0B25A2C0050046487E /* NeverMatcher.swift */; };
-		A75BAC1625A2C0050046487E /* CallstackMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0C25A2C0050046487E /* CallstackMatchers.swift */; };
 		A75BAC1725A2C0050046487E /* ImmediatelyBeforeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0D25A2C0050046487E /* ImmediatelyBeforeMatcher.swift */; };
 		A75BAC1825A2C0050046487E /* AnyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC0E25A2C0050046487E /* AnyMatcher.swift */; };
 		A75BAC1D25A2C0130046487E /* CallstackVerifyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC1B25A2C0130046487E /* CallstackVerifyer.swift */; };
 		A75BAC1E25A2C0130046487E /* AnyCallstackPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BAC1C25A2C0130046487E /* AnyCallstackPredicate.swift */; };
+		A7A6ADDE25A7FD4C00E5608B /* CallstackPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6ADDD25A7FD4C00E5608B /* CallstackPredicates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,11 +74,11 @@
 		A75BAC0925A2C0050046487E /* TimesMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesMatcher.swift; sourceTree = "<group>"; };
 		A75BAC0A25A2C0050046487E /* AtleastMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtleastMatcher.swift; sourceTree = "<group>"; };
 		A75BAC0B25A2C0050046487E /* NeverMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeverMatcher.swift; sourceTree = "<group>"; };
-		A75BAC0C25A2C0050046487E /* CallstackMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallstackMatchers.swift; sourceTree = "<group>"; };
 		A75BAC0D25A2C0050046487E /* ImmediatelyBeforeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmediatelyBeforeMatcher.swift; sourceTree = "<group>"; };
 		A75BAC0E25A2C0050046487E /* AnyMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMatcher.swift; sourceTree = "<group>"; };
 		A75BAC1B25A2C0130046487E /* CallstackVerifyer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallstackVerifyer.swift; sourceTree = "<group>"; };
 		A75BAC1C25A2C0130046487E /* AnyCallstackPredicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCallstackPredicate.swift; sourceTree = "<group>"; };
+		A7A6ADDD25A7FD4C00E5608B /* CallstackPredicates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallstackPredicates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +203,7 @@
 				A75BAC0E25A2C0050046487E /* AnyMatcher.swift */,
 				A75BAC0A25A2C0050046487E /* AtleastMatcher.swift */,
 				A75BAC0825A2C0050046487E /* BeforeMatcher.swift */,
-				A75BAC0C25A2C0050046487E /* CallstackMatchers.swift */,
+				A7A6ADDD25A7FD4C00E5608B /* CallstackPredicates.swift */,
 				A75BAC0625A2C0050046487E /* ImmediatelyAfterMatcher.swift */,
 				A75BAC0D25A2C0050046487E /* ImmediatelyBeforeMatcher.swift */,
 				A75BAC0B25A2C0050046487E /* NeverMatcher.swift */,
@@ -325,10 +325,10 @@
 			files = (
 				A75BAC1D25A2C0130046487E /* CallstackVerifyer.swift in Sources */,
 				A75BAC1725A2C0050046487E /* ImmediatelyBeforeMatcher.swift in Sources */,
-				A75BAC1625A2C0050046487E /* CallstackMatchers.swift in Sources */,
 				235800B6207381EF0018B105 /* CallstackPredicate.swift in Sources */,
 				A75BAC1525A2C0050046487E /* NeverMatcher.swift in Sources */,
 				235800BA20738AE40018B105 /* CallstackMatcher.swift in Sources */,
+				A7A6ADDE25A7FD4C00E5608B /* CallstackPredicates.swift in Sources */,
 				A75BAC1225A2C0050046487E /* BeforeMatcher.swift in Sources */,
 				A75BAC1825A2C0050046487E /* AnyMatcher.swift in Sources */,
 				A75BAC1E25A2C0130046487E /* AnyCallstackPredicate.swift in Sources */,
