@@ -9,15 +9,19 @@
 @testable import TestSpy
 
 final class FakeCallstackPredicate: CallstackPredicate {
+    func check(against callstack: [TestMethod]) -> Bool {
+        receivedCallstack = callstack
+        return stubbedResponse
+    }
+    
+    func verify(method: TestMethod) -> Bool {
+        fatalError("yet implement")
+    }
+    
     var stubbedResponse: Bool = true
     var receivedMethod: TestMethod?
     var receivedCallstack: [TestMethod]?
     
-    func check(method: TestMethod, against callstack: [TestMethod]) -> Bool {
-        receivedCallstack = callstack
-        receivedMethod = method
-        return stubbedResponse
-    }
     
     func description(forMethod method: TestMethod) -> String {
         return "return \(stubbedResponse) for method \(method)"

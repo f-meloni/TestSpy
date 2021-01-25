@@ -12,172 +12,194 @@ import Nimble
 
 final class CallstackMatcherSpec: QuickSpec {
     override func spec() {
-        var matcher: CallstackMatcher<TestMethod>!
+        var matcher: AnyCallstackPredicate<TestMethod>!
         
         describe("Given an 'any' matcher") {
             beforeEach {
-                matcher = .any
+                matcher = CallstackMatcher.any.predicate(for: .method1)
             }
             
             context("When the check is called") {
                 it("Returns true if the method is contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
                 }
                 
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method2])) == false
+                    expect(matcher.check(against: [.method2])) == false
                 }
             }
         }
         
         describe("Given a 'never' matcher") {
             beforeEach {
-                matcher = .never
+                matcher = CallstackMatcher.never.predicate(for: .method1)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method2])) == false
+                    expect(matcher.check(against: [.method1, .method2])) == false
                 }
                 
                 it("Returns true if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method2])) == true
+                    expect(matcher.check(against: [.method2])) == true
                 }
             }
         }
         
         describe("Given a 'times(2)' matcher") {
             beforeEach {
-                matcher = .times(2)
+                matcher = CallstackMatcher.times(2).predicate(for: .method1)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is contained just one time in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method2])) == false
+                    expect(matcher.check(against: [.method1, .method2])) == false
                 }
                 
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method2])) == false
+                    expect(matcher.check(against: [.method2])) == false
                 }
                 
                 it("Returns true if the method is contained two times in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method1])) == true
+                    expect(matcher.check(against: [.method1, .method1])) == true
                 }
                 
                 it("Returns false if the method is contained more two times in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method1, .method1])) == false
+                    expect(matcher.check(against: [.method1, .method1, .method1])) == false
                 }
             }
         }
         
         describe("Given a 'atLeast(2)' matcher") {
             beforeEach {
-                matcher = .atLeast(times: 2)
+                matcher = CallstackMatcher.atLeast(times: 2).predicate(for: .method1)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is contained just one time in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method2])) == false
+                    expect(matcher.check(against: [.method1, .method2])) == false
                 }
                 
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method2])) == false
+                    expect(matcher.check(against: [.method2])) == false
                 }
                 
                 it("Returns true if the method is contained two times in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method1])) == true
+                    expect(matcher.check(against: [.method1, .method1])) == true
                 }
                 
                 it("Returns true if the method is contained more two times in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method1, .method1])) == true
+                    expect(matcher.check(against: [.method1, .method1, .method1])) == true
                 }
             }
         }
         
         describe("Given a 'before(method)' matcher") {
             beforeEach {
-                matcher = .before(.method2)
+                matcher = CallstackMatcher.before(.method2).predicate(for: .method1)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method2])) == false
+                    expect(matcher.check(against: [.method2])) == false
                 }
                 
                 it("Returns true if the method is contained and is before the other method") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
                 }
                 
                 it("Returns false if the method is contained but is not before the other method") {
-                    expect(matcher.check(method: .method1, against: [.method2, .method1])) == false
+                    expect(matcher.check(against: [.method2, .method1])) == false
                 }
             }
         }
         
         describe("Given an 'immediatelyBefore(method)' matcher") {
             beforeEach {
-                matcher = .immediatelyBefore(.method2)
+                matcher = CallstackMatcher.immediatelyBefore(.method2).predicate(for: .method1)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method1, against: [.method2])) == false
+                    expect(matcher.check(against: [.method2])) == false
                 }
                 
                 it("Returns true if the method is contained and is immediately before the other method") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
                 }
                 
                 it("Returns false if the method is contained and is before, but not immediately before the other method") {
-                    expect(matcher.check(method: .method1, against: [.method1, .method3, .method2])) == false
+                    expect(matcher.check(against: [.method1, .method3, .method2])) == false
                 }
                 
                 it("Returns false if the method is contained but is not before the other method") {
-                    expect(matcher.check(method: .method1, against: [.method2, .method1])) == false
+                    expect(matcher.check(against: [.method2, .method1])) == false
                 }
             }
         }
         
         describe("Given a 'after(method)' matcher") {
             beforeEach {
-                matcher = .after(.method1)
+                matcher = CallstackMatcher.after(.method1).predicate(for: .method2)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method2, against: [.method1])) == false
+                    expect(matcher.check(against: [.method1])) == false
                 }
                 
                 it("Returns true if the method is contained and is after the other method") {
-                    expect(matcher.check(method: .method2, against: [.method1, .method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
                 }
                 
                 it("Returns false if the method is contained but is not after the other method") {
-                    expect(matcher.check(method: .method2, against: [.method2, .method1])) == false
+                    expect(matcher.check(against: [.method2, .method1])) == false
                 }
             }
         }
         
         describe("Given a 'immediatelyAfter(method)' matcher") {
             beforeEach {
-                matcher = .immediatelyAfter(.method1)
+                matcher = CallstackMatcher.immediatelyAfter(.method1).predicate(for: .method2)
             }
             
             context("When the check is called") {
                 it("Returns false if the method is not contained in the callstack") {
-                    expect(matcher.check(method: .method2, against: [.method1])) == false
+                    expect(matcher.check(against: [.method1])) == false
                 }
                 
                 it("Returns true if the method is contained and is immediately after the other method") {
-                    expect(matcher.check(method: .method2, against: [.method1, .method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
                 }
                 
                 it("Returns false if the method is contained but is not immediately after the other method") {
-                    expect(matcher.check(method: .method2, against: [.method2, .method3, .method1])) == false
+                    expect(matcher.check(against: [.method2, .method3, .method1])) == false
                 }
                 
                 it("Returns false if the method is contained but is not after the other method") {
-                    expect(matcher.check(method: .method2, against: [.method2, .method1])) == false
+                    expect(matcher.check(against: [.method2, .method1])) == false
+                }
+            }
+        }
+        describe("Given a Closure matcher") {
+            beforeEach {
+                matcher = AnyCallstackPredicate(predicate:
+                                                  CallstackPredicates.Is<TestMethod> {
+                                                    method in
+                                                    method == .method1 || method == .method2
+                                                  }
+                )
+            }
+            
+            context("When the check is called") {
+                it("Returns true if the expected method is contained in the callstack") {
+                    expect(matcher.check(against: [.method1])) == true
+                    expect(matcher.check(against: [.method2])) == true
+                    expect(matcher.check(against: [.method1, .method2])) == true
+                }
+                
+                it("Returns false if the expected method is not contained in the callstack") {
+                    expect(matcher.check(against: [.method3])) == false
                 }
             }
         }

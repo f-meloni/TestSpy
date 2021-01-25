@@ -13,7 +13,7 @@ public protocol TestSpy {
 
 extension TestSpy {
     public func check<P: CallstackPredicate>(method: Method, predicate: P) -> Bool where P.Method == Method {
-        return callstack.check(method: method, predicate: predicate)
+        return callstack.check(predicate: predicate)
     }
 }
 

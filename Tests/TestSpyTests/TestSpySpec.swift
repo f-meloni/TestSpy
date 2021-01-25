@@ -30,7 +30,6 @@ final class TestSpySpec: QuickSpec {
                     testSpy.callstack.record(.method2)
                     _ = testSpy.check(method: .method1, predicate: stubbedPredicate)
                     
-                    expect(stubbedPredicate.receivedMethod) == .method1
                     expect(stubbedPredicate.receivedCallstack) == testSpy.callstack.callstack
                 }
                 
